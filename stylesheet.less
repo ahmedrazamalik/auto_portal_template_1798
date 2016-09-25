@@ -1,0 +1,295 @@
+// --------------------------------
+// BaseKit Baseplate Theme (v2.0)
+// --------------------------------
+
+// -----------------------------
+// #Table of Contents
+// -----------------------------
+
+// 1. #LESS INCLUDES
+// 2. #PAGE SETTINGS
+// 3. #TEMPLATE STYLES
+
+
+
+
+// -----------------------------
+// 1. #LESS Includes
+
+// -----------------------------
+@import "@{templateCommon}/bk-less-framework-v8.less"; // BaseKit LESS Framework
+
+// ** BaseKit LESS Framework is a set of non obtrusive LESS files that can be pulled into
+//    your template to guarentee widgets come to life. Proivides default styles for all widgets.
+
+// Template Includes
+@import "@{templateLocal}/less/theme.less"; // Theme
+@import "@{templateLocal}/less/widgets.less"; // Widgets
+@import "@{templateLocal}/less/mixins.less"; // Mixins
+@import "@{templateLocal}/less/navigation.less"; // Navigation
+
+// Plugin Includes
+@import "@{templateLocal}/less/plugins/plugin-blog.less"; // Plugin: Blog CSS
+@import "@{templateLocal}/less/plugins/plugin-menu.less"; // Plugin: Menu CSS
+@import "@{templateLocal}/less/plugins/plugin-ecommerce.less"; // Plugin: Ecommerce CSS
+
+
+
+@bp-global-large:   ~"only screen and (min-width : 1200px)";
+@bp-global-medium:  ~"only screen and (min-width : 851px) and (max-width : 1200px)";
+@bp-global-small:   ~"only screen and (max-width : 850px)";
+
+// -----------------------------
+// 2. #Page Settings **
+// -----------------------------
+
+// ** Styles for advanced Baseplate template - remove when developing a custom template
+
+
+// Body
+// --------------
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-attachment: fixed;
+    & > * {
+        flex: 0 0 auto;
+    }
+    & > .container,
+    & > .bk-pt-default {
+        flex: 1 0 auto;
+    }
+}
+
+
+// Page Container
+// --------------
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+	@media @tablet {
+        margin: 0;
+		padding-left: 4%;
+        padding-right: 4%;
+	}
+}
+
+
+// Header Wrapper
+// --------------
+
+.header-wrapper {
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+	// Layout
+	padding: 20px 2%;
+	@media @tablet {
+		display: block;
+		padding: 25px 4% 25px;
+	}
+}
+
+
+// #Default Page
+// -------------
+
+// Sticky Footer
+.bk-pt-default {
+    flex: 1;
+}
+
+.bk-pt-default .container {
+}
+
+// Default Page Title
+.template-title {
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    background-color: transparent;
+    margin-top: 40px;
+    @media @tablet {
+        margin-top: 20px;
+    }
+}
+
+.template-title h1 {
+    &:after {
+        border-top: 3px solid fade(@color-swatch3,20%);
+        content: "";
+        display: block;
+        position: relative;
+        margin: 25px auto 5px;
+        min-width: 80px;
+        max-width: 200px;
+        width: 5%;
+        transform: skew(-40deg);
+    }
+}
+
+
+
+// Header
+// -----------------------------
+
+
+// Content Widget Left
+.header-search {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 1 33%;
+    -ms-flex: 1 1 33%;
+    flex: 1 1 33%;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    @media @tablet {
+        display: none;
+    }
+}
+
+// Logo Center
+.header-companyname {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: 33%;
+    -ms-flex-item-align: 33%;
+    align-self: 33%;
+    text-align: center;
+    padding: 10px 0;
+    @media @tablet {
+        display: block;
+        width: 100%;
+    }
+}
+
+.company-link:hover{
+    color: inherit;
+}
+
+// Content Widget right
+.header-basket {
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 1 33%;
+    -ms-flex: 1 1 33%;
+    flex: 1 1 33%;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    @media @tablet {
+        display: block;
+        width: 100%;
+    }
+}
+
+.page-zones__template-widgets__ecombasket-shopbasket-bk-overlay {
+    top: 7px!important;
+}
+
+// Ecom Search Products
+// -----------------------------
+
+.flex-item.flex-product-search {
+    display: block;
+    @media @tablet {
+        margin: 0px auto;
+        display: table;
+    }
+}
+
+
+.flex-item.flex-product-search input[type="search"] {
+    border: 0;
+    border-bottom: 1px solid darken(@color-swatch1,10%);
+}
+
+.flex-item.flex-product-search input.input[type=search]:focus {
+    border: 0;
+    border-bottom: 1px solid darken(@color-swatch1,20%);
+}
+
+.ecomproductslist__button {
+    background-color: transparent;
+}
+
+
+
+
+// -----------------------------
+// 3. #Template Styles
+// -----------------------------
+
+.template-content {
+	width:100%;
+	margin:0px auto;
+	@media @tablet {
+		width:100%;
+	}
+}
+
+.widget--zone-widget {
+    margin: 0 0 20px;
+}
+
+
+
+
+// -----------------------------
+// 4. #Variables
+// -----------------------------
+
+@import "@{templateLocal}/less/variables.less";
+//@import "@{templateLocal}/bk-v8-test.less";
